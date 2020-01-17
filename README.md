@@ -22,3 +22,10 @@ Työntekijä voi
 * Katsoa tarjolla olevia työvuoroja
   * Ilmoittautua työvuoroon
   * Tarkastella työskentelyhistoriaansa ja suorittaa erilaisia hakuja esimerkiksi tietyltä aikaväliltä.
+
+
+Projektin alustava tietokantakaavio:
+
+[Tietokantakaavio:](https://github.com/vlappala/Staffer/tree/master/documentation)
+
+  
