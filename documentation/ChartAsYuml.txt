@@ -1,0 +1,8 @@
+[Työntekijä|(pk)id:Integer;nimi:String;vastaavakoulutusSuoritettu:Boolean;.;.;.]
+
+[Ooppera|(pk)id:Integer;nimi:String;kesto:Time;.;.;.]
+
+[Oopperanäytös|(pk)id:Integer;(fk)ooppera_id:Ooppera;esitysajankohta:DateTime;.;.;.]
+
+[Ooppera]1-*[Oopperanäytös]
+[Oopperanäytös]*-*[Työntekijä]
