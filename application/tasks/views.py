@@ -14,7 +14,9 @@ def tasks_form():
 def tasks_set_done(task_id):
 
     t = Task.query.get(task_id)
-    t.done = True
+    b = t.done
+    
+    t.done = not b
     db.session().commit()
   
     return redirect(url_for("tasks_index"))
