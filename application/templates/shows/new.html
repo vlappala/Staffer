@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('shows_create') }}">
+  Showname:
+  <input type="text" name="name">
+  Showdate:
+  <input type="date" name="showdate"/>
+  Showtime:
+  <input type="time" name="showtime"/>
+  <input type="submit" value="Add a new show"/>
+</form>
+{% endblock %}
