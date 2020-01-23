@@ -4,15 +4,25 @@
   <table>
     <tr>
       <th>Show</th>
+      
+      <th>Showtime</th>
+
+      <th>Open for recruitment</th>
+
 
       <th></th>
     </tr>
     {% for show in shows %}
     <tr>
       <td>{{ show.name }}</td>
+      <td>{{ show.show_date }}</td>
+      
+      <td>{{ show.open_for_recruitment }}</td>
 
       <td>
-
+        <form method="POST" action="{{ url_for('shows_set_recruitment_open', show_id=show.id) }}">
+          <input type="submit" value="Change status!"/>
+        </form>
       </td>
     </tr>
     {% endfor %}

@@ -1,4 +1,5 @@
 from application import db
+from dateutil import parser
 
 class Show(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -7,9 +8,11 @@ class Show(db.Model):
     onupdate=db.func.current_timestamp())
 
     name = db.Column(db.String(144), nullable=False)
-    # done = db.Column(db.Boolean, nullable=False)
+    open_for_recruitment = db.Column(db.Boolean, nullable=False)
 
+    # Konstruktorin kehitysversio:     def __init__(self, name, show_date):
     def __init__(self, name, show_date):
         self.name = name
         self.show_date = show_date
         # self.done = False
+        self.open_for_recruitment = False
