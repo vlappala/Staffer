@@ -26,6 +26,10 @@ Työntekijä voi
 
 Projektin alustava tietokantakaavio:
 
-[Tietokantakaavio:](https://github.com/vlappala/Staffer/tree/master/documentation)
+[Tietokantakaavio](https://github.com/vlappala/Staffer/tree/master/documentation)
+
+[Sovellus Herokussa](http://tsoha-staffer.herokuapp.com/)
+
+[User stories](https://github.com/vlappala/Staffer/tree/master/documentation/userstories.md)
 
   
