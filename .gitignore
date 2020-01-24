@@ -133,3 +133,4 @@ dmypy.json
 .pyre/
 tasks.db
 shows.db
+.vscode
