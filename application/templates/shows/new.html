@@ -1,7 +1,56 @@
 {% extends "layout.html" %}
   
 {% block body %}
+
 <form method="POST" action="{{ url_for('shows_create') }}">
+  <table>
+    <tr>
+<td>
+  {{ form.name.label }}
+</td>
+<td>
+  {{ form.name }}
+</td>
+<td>
+  <ul>
+    {% for error in form.name.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+</td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.showdate.label }}
+      </td>
+      <td>
+        {{ form.showdate }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.showtime.label }}
+      </td>
+      <td>
+        {{ form.showtime }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.show_open_for_recruitment.label }}
+      </td>
+      <td>
+        {{ form.show_open_for_recruitment }}
+      </td>
+    </tr>
+ 
+    <tr>
+<td colspan="2">
+  <input type="submit" value="Add a new show"/>
+</td>
+    </tr>
+</form>
+<!-- <form method="POST" action="{{ url_for('shows_create') }}">
   Showname:
   <input type="text" name="name">
   Showdate:
@@ -9,5 +58,5 @@
   Showtime:
   <input type="time" name="showtime"/>
   <input type="submit" value="Add a new show"/>
-</form>
+</form> -->
 {% endblock %}

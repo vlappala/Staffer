@@ -1,6 +1,7 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.shows.models import Show
+from application.shows.forms import ShowForm
 from dateutil import parser
 from datetime import *
 
@@ -10,7 +11,8 @@ def shows_index():
 
 @app.route("/shows/new/")
 def shows_form():
-    return render_template("shows/new.html")
+    # wanha: return render_template("shows/new.html")
+    return render_template("shows/new.html", form = ShowForm())
   
 @app.route("/shows/<show_id>/", methods=["POST"])
 def shows_set_recruitment_open(show_id):
@@ -26,16 +28,32 @@ def shows_set_recruitment_open(show_id):
 @app.route("/shows/", methods=["POST"])
 def shows_create():
 
-    # showtime = datetime.now()
-    s_name = request.form.get("name")
-    showtime = request.form.get("showdate")
+    form = ShowForm(request.form)
+
+    if not form.validate():
+        return render_template("shows/new.html", form = form)
+
+
+    s_name = form.name.data
+    showtime = ""
+    showtime = showtime + form.showdate.data.strftime("%Y-%m-%d")
     showtime = showtime + " "
-    showtime = showtime + request.form.get("showtime")
+    showtime = showtime + form.showtime.data.strftime("%H:%M")
     showtime = parser.parse(showtime)
+
+    # showtime = datetime.now()
+
+    # s_name = request.form.get("name")
+    # showtime = request.form.get("showdate")
+    # showtime = showtime + " "
+    # showtime = showtime + request.form.get("showtime")
+    # showtime = parser.parse(showtime)
+
 
     # date = request.form.get("showdate")
     # wanha: t = Show(request.form.get("name"), date)
     t = Show(s_name, showtime)
+    t.open_for_recruitment = form.show_open_for_recruitment.data
     # show_time = Show(request.form.get("showtime"))
 
     db.session().add(t)

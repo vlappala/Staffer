@@ -31,3 +31,8 @@ Projektin alustava tietokantakaavio:
 [Sovellus Herokussa](http://tsoha-staffer.herokuapp.com/)
 
 [User stories](https://github.com/vlappala/Staffer/tree/master/documentation/userstories.md)
+
+
+Komento riippuvuuksien tallentamiseksi tekstitiedostoon: 
+
+    pip freeze | grep -v pkg-resources > requirements.txt
