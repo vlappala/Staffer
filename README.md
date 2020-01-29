@@ -36,3 +36,8 @@ Projektin alustava tietokantakaavio:
 Komento riippuvuuksien tallentamiseksi tekstitiedostoon: 
 
     pip freeze | grep -v pkg-resources > requirements.txt
+    
+Testitunnukset:
+
+    Login: hello
+    Password: world

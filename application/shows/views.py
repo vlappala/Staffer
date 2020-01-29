@@ -1,20 +1,27 @@
 from application import app, db
+
 from flask import redirect, render_template, request, url_for
+from flask_login import login_required
+
 from application.shows.models import Show
 from application.shows.forms import ShowForm
+
 from dateutil import parser
 from datetime import *
 
 @app.route("/shows/", methods=["GET"])
+@login_required
 def shows_index():
     return render_template("shows/list.html", shows = Show.query.all())
 
 @app.route("/shows/new/")
+@login_required
 def shows_form():
     # wanha: return render_template("shows/new.html")
     return render_template("shows/new.html", form = ShowForm())
   
 @app.route("/shows/<show_id>/", methods=["POST"])
+@login_required
 def shows_set_recruitment_open(show_id):
 
     t = Show.query.get(show_id)
@@ -26,6 +33,7 @@ def shows_set_recruitment_open(show_id):
     return redirect(url_for("shows_index"))
 
 @app.route("/shows/", methods=["POST"])
+@login_required
 def shows_create():
 
     form = ShowForm(request.form)

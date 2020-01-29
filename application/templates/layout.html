@@ -6,10 +6,21 @@
   </head>
   
   <body>
-    <ul>
-<li><a href="{{ url_for('shows_index') }}">List shows</a></li>
-<li><a href="{{ url_for('shows_form') }}">Add a show</a></li>
-    </ul>
+      {% if current_user.is_authenticated %}
+      <p>
+	      Kirjautunut nimellä {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+      </p>
+      <ul>
+        <li><a href="{{ url_for('shows_index') }}">List shows</a></li>
+        <li><a href="{{ url_for('shows_form') }}">Add a show</a></li>
+      </ul>
+      {% else %}
+      <h2>Staffer 0.1</h2>
+      <h3>You have to be logged in to use the application</h3>
+      <a href="{{ url_for('auth_login') }}">Log in!</a>
+      {% endif %}
+      
+
     
     {% block body %}
     <p>
