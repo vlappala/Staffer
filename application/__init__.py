@@ -18,6 +18,9 @@ from application import views
 from application.shows import models
 from application.shows import views
 
+from application.productions import models
+from application.productions import views
+
 from application.auth import models
 from application.auth import views
 
