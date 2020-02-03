@@ -15,16 +15,16 @@ class ShowForm(FlaskForm):
     class Meta:
         csrf = False
 
-class ProductionForm(FlaskForm):
+# class ProductionForm(FlaskForm):
     
-    name = StringField("Production name", [validators.Length(min=2)])
-    # showdate = DateField("Showdate", [validators.InputRequired()])
-    # showtime = TimeField("Showtime", [validators.InputRequired()])
-    # show_open_for_recruitment =  BooleanField("Open for recruitment")
+#     name = StringField("Production name", [validators.Length(min=2)])
+#     # showdate = DateField("Showdate", [validators.InputRequired()])
+#     # showtime = TimeField("Showtime", [validators.InputRequired()])
+#     # show_open_for_recruitment =  BooleanField("Open for recruitment")
 
-    # test = DateTimeField("testiloota", [validators.InputRequired()])
+#     # test = DateTimeField("testiloota", [validators.InputRequired()])
     
 
-    class Meta:
-        csrf = False
+#     class Meta:
+#         csrf = False
 

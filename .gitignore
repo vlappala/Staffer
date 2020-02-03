@@ -131,6 +131,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Omat
+
 tasks.db
 shows.db
 .vscode
+muistiinpanot
+muistiinpanot/
