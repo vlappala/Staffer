@@ -1,0 +1,23 @@
+{% extends "blank.html" %}
+
+{% block body %}
+
+<table>
+
+  <p>
+    <td>
+        {{ form.name.label }}
+      </td>
+      <td>
+        {{ form.name }}
+      </td>
+</table>
+    <br>
+    Show date: {{ show.show_date }}
+    <br>
+    Formin päivän teksti: {{ form.showdate.label }}
+    <br>
+    <br>
+
+  </p>
+{% endblock %}

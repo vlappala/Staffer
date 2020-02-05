@@ -14,7 +14,7 @@
     </tr>
     {% for show in shows %}
     <tr>
-      <td>{{ show.name }}</td>
+      <td><a href="{{ url_for('show_details', show_id=show.id) }}">{{ show.name }}</a></td>
       <td>{{ show.show_date }}</td>
       
       <td>{{ show.open_for_recruitment }}</td>
@@ -24,6 +24,13 @@
           <input type="submit" value="Change status!"/>
         </form>
       </td>
+
+      <td>
+        <form method="POST" action="{{ url_for('shows_delete', show_id=show.id) }}">
+          <input type="submit" value="Delete show (Warning, no confirmation!)!"/>
+        </form>
+      </td>
+
     </tr>
     {% endfor %}
   </table>

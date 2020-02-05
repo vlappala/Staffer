@@ -32,6 +32,8 @@ def shows_set_recruitment_open(show_id):
   
     return redirect(url_for("shows_index"))
 
+
+
 @app.route("/shows/", methods=["POST"])
 @login_required
 def shows_create():
@@ -69,34 +71,27 @@ def shows_create():
   
     return redirect(url_for("shows_index"))
 
-# @app.route("/productions/new/")
-# @login_required
-# def productions_form():
-#     # wanha: return render_template("shows/new.html")
-#     return render_template("productions/new.html", form = ProductionForm())
-
-# @app.route("/productions/", methods=["POST"])
-# @login_required
-# def productions_create():
-
-#     form = ProductionForm(request.form)
-
-#     if not form.validate():
-#         return render_template("productions/new.html", form = form)
+@app.route("/shows/delete/<show_id>/", methods=["POST"])
+@login_required
+def shows_delete(show_id):
 
 
-#     s_name = form.name.data
 
-#     t = Production(s_name)
-
-
-#     db.session().add(t)
-#     db.session().commit()
+    t = Show.query.get(show_id)
+    db.session.delete(t)
+    
+    
+    db.session().commit()
   
-#     return redirect(url_for("productions_index"))
+    return redirect(url_for("shows_index"))
 
-# @app.route("/productions/", methods=["GET"])
-# @login_required
-# def productions_index():
-#     return render_template("productions/list.html", productions = Production.query.all())
+@app.route("/shows/details/<show_id>/", methods=["GET"])
+@login_required
+def show_details(show_id):
+
+    formi = ShowForm()
+    show = Show.query.get(show_id)
+    formi.name = show.name
+    formi.showdate = show.show_date
   
+    return render_template("shows/details/new.html", show = show, form = formi)
