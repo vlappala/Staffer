@@ -107,6 +107,7 @@ def show_update(show_id):
 
 
     show.name = form.name.data
+    
     showtime = ""
     showtime = showtime + form.showdate.data.strftime("%Y-%m-%d")
     showtime = showtime + " "
