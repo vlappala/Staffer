@@ -89,9 +89,49 @@ def shows_delete(show_id):
 @login_required
 def show_details(show_id):
 
-    formi = ShowForm()
+    form = ShowForm()
     show = Show.query.get(show_id)
-    formi.name = show.name
-    formi.showdate = show.show_date
+    form.name.data = show.name
+      
+    return render_template("shows/details/new.html", show = show, form = form)
+
+@app.route("/shows/details/update/<show_id>/", methods=["POST"])
+@login_required
+def show_update(show_id):
+
+    form = ShowForm(request.form)
+    show = Show.query.get(show_id)
+
+    if not form.validate():
+        return render_template("shows/details/new.html", show = show, form = form)
+
+
+    show.name = form.name.data
+    showtime = ""
+    showtime = showtime + form.showdate.data.strftime("%Y-%m-%d")
+    showtime = showtime + " "
+    showtime = showtime + form.showtime.data.strftime("%H:%M")
+    showtime = parser.parse(showtime)
+
+    show.show_date = showtime
+    show.open_for_recruitment = form.show_open_for_recruitment.data
+    db.session().commit()
   
-    return render_template("shows/details/new.html", show = show, form = formi)
+    return redirect(url_for("shows_index"))
+
+  
+# Ei toimi: 
+
+# @app.route("/shows/details/edit/<show_id>/", methods=["GET"])
+# @login_required
+# def edit_show_details(show_id):
+
+#     show = Show.query.get(show_id)
+
+#     formi = ShowForm()
+
+  
+  
+#     return render_template("shows/details/edit/editform.html", form = formi, show = show)
+
+

@@ -2,14 +2,14 @@
   
 {% block body %}
 
-<form method="POST" action="{{ url_for('show_update') }}">
+<form method="POST" action="{{ url_for('show_update', show_id=show.id) }}">
   <table>
     <tr>
 <td>
   {{ form.name.label }}
 </td>
 <td>
-  {{ form.name = show.name }}
+  {{ form.name }}
 </td>
 <td>
   <ul>
@@ -46,7 +46,7 @@
  
     <tr>
 <td colspan="2">
-  <input type="submit" value="Add a new show"/>
+  <input type="submit" value="Update show!"/>
 </td>
     </tr>
 </form>
