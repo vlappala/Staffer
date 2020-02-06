@@ -10,6 +10,9 @@ class Show(db.Model):
     name = db.Column(db.String(144), nullable=False)
     open_for_recruitment = db.Column(db.Boolean, nullable=False)
 
+    production_id = db.Column(db.Integer, db.ForeignKey('production.id'),
+                           nullable=False)
+
     # Konstruktorin kehitysversio:     def __init__(self, name, show_date):
     def __init__(self, name, show_date):
         self.name = name
