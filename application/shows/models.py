@@ -24,7 +24,7 @@ class Show(db.Model):
 
     @staticmethod
     def find_shows_with_most_job_openings():
-        stmt = "SELECT production.id, production.name, COUNT(show.id) AS LKM FROM production LEFT JOIN show ON show.production_id = production.id group by production.id ORDER BY LKM DESC;"
+        stmt = text("SELECT production.id, production.name, COUNT(show.id) AS LKM FROM production LEFT JOIN show ON show.production_id = production.id group by production.id ORDER BY LKM DESC;")
         res = db.engine.execute(stmt)
   
         response = []
