@@ -3,38 +3,58 @@
   <head>
     <meta charset="utf-8">
     <title>Staffer!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   
   <body>
-      {% if current_user.is_authenticated %}
-      <p>
-	      Logged in as {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Log out</a>
-      </p>
-      <ul>
-        <li><a href="{{ url_for('productions_form') }}">Add a new production</a></li>
-        
-        <li><a href="{{ url_for('productions_index') }}">List productions and/or add shows to a production</a></li>
-        
-        <br>
-        <li><a href="{{ url_for('shows_index') }}">List all shows</a></li>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <a class="navbar-brand" href="#">Staffer!</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <br>
-        <br>
-          PLEASE NOTE: Functionality has changed: To add shows to a production, please visit List productions -page.
-        
-
-      </ul>
-      {% else %}
-      <h2>Staffer 0.1</h2>
-      <h3>You have to be logged in to use the application</h3>
-      <td>
-        <a href="{{ url_for('auth_login') }}">Log in!</a>
-      </td>
-      <td>
-        <a href="{{ url_for('registration_form') }}">Register new user!</a>
-      </td>
       
-      {% endif %}
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav mr-auto">
+        {% if current_user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('index') }} ">Main menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('productions_form') }}">Add a new production</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('productions_index') }}">List productions and/or add shows to a production</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('shows_index') }}">List all shows</a>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('auth_login') }}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('registration_form') }}">Register new user!</a>
+        </li>
+        {% endif %}
+        </ul>
+        <div class="form-inline mt-2 mt-md-0">
+          {% if current_user.is_authenticated %}
+          <a href="{{ url_for('auth_logout') }}">Hello {{ current_user.name }} -- Logout</a>
+          {% else %}
+          <a href="{{ url_for('auth_login') }}">Login</a>
+          {% endif %}
+          </div>
+        </div>
+      </nav> 
+        
+        
+
+      
+
+      
+  
       
 
     
@@ -43,6 +63,9 @@
 Content.
     </p>
     {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
 

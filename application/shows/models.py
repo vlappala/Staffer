@@ -1,6 +1,8 @@
 from application import db
 from dateutil import parser
 
+from sqlalchemy.sql import text
+
 class Show(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     show_date = db.Column(db.DateTime, default=db.func.current_timestamp())

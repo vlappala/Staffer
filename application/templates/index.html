@@ -2,11 +2,19 @@
 
 {% block body %}
   <p>
+
+{% if current_user.is_authenticated %}
+
+Logged in as {{ current_user.name }}. 
+<br>
+PLEASE NOTE: Functionality has changed: To add shows to a production, please visit List productions -page.
+<br>
 {% if most_openings is defined %}
 <p>
   Productions with most shows:
 </p>
 {% endif %}
+
 
 <ul>
   {% for show in most_openings %}
@@ -17,6 +25,7 @@
   </li>
   {% endfor %}
 </ul>
+{% endif %}
     
   </p>
 {% endblock %}
