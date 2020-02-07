@@ -11,6 +11,11 @@
     {% for production in productions %}
     <tr>
       <td>{{ production.name }}</td>
+      <td>
+        <form method="GET" action="{{ url_for('add_shows_to_production', production_id=production.id) }}">
+          <input type="submit" value="Add shows to this production!"/>
+        </form>
+      </td>
 
 
 

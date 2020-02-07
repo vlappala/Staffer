@@ -1,0 +1,49 @@
+{% extends "blank.html" %}
+
+  {% block body %}
+  <form method="POST" action="{{ url_for('post_shows_to_production', production_id=production.id) }}">
+    <table>
+        <br>
+        <br>
+        
+            {{ production.name }}
+        <br>
+        <br>
+
+        
+        
+
+              </tr>
+              <tr>
+                <td>
+                  {{ form.showdate.label }}
+                </td>
+                <td>
+                  {{ form.showdate }}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{ form.showtime.label }}
+                </td>
+                <td>
+                  {{ form.showtime }}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{ form.show_open_for_recruitment.label }}
+                </td>
+                <td>
+                  {{ form.show_open_for_recruitment }}
+                </td>
+              </tr>
+
+
+      <tr>
+	<td colspan="2">
+	  <input type="submit" value="Add show!"/>
+	</td>
+      </tr>
+  </form>
+  {% endblock %}

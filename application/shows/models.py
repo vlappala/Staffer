@@ -20,6 +20,17 @@ class Show(db.Model):
         # self.done = False
         self.open_for_recruitment = False
 
+    @staticmethod
+    def find_shows_with_most_job_openings():
+        stmt = "SELECT production.id, production.name, COUNT(show.id) FROM production LEFT JOIN show ON show.production_id = production.id GROUP BY production.id"
+        res = db.engine.execute(stmt)
+  
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1]})
+
+        return response
+
 # class Production(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
 #     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),

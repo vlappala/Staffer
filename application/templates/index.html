@@ -2,6 +2,19 @@
 
 {% block body %}
   <p>
+{% if most_openings is defined %}
+<p>
+  The following shows need work:
+</p>
+{% endif %}
+
+<ul>
+  {% for show in most_openings %}
+  <li>
+    {{show.name}}
+  </li>
+  {% endfor %}
+</ul>
     
   </p>
 {% endblock %}
