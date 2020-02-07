@@ -4,14 +4,16 @@
   <p>
 {% if most_openings is defined %}
 <p>
-  The following shows need work:
+  Productions with most shows:
 </p>
 {% endif %}
 
 <ul>
   {% for show in most_openings %}
   <li>
-    {{show.name}}
+    <td>{{ show.name }}</td>
+    <td>{{ show.LKM }}</td>
+    
   </li>
   {% endfor %}
 </ul>
