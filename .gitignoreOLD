@@ -136,8 +136,7 @@ dmypy.json
 
 tasks.db
 shows.db
-application/shows.db
-/application/OLD_shows.db
 .vscode
 muistiinpanot
 muistiinpanot/
+application/shows.db

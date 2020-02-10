@@ -1,4 +1,4 @@
-{% extends "blank.html" %}
+{% extends "layout.html" %}
 
   {% block body %}
   <form method="POST" action="{{ url_for('show_update', show_id=show.id) }}">
@@ -21,6 +21,7 @@
         <td>
           {{ show.show_date }}
         </td>
+        <td></td>
         <td></td>
         <td>
           {{ form.show_open_for_recruitment.label }}:
