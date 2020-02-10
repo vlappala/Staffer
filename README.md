@@ -27,7 +27,7 @@ Työntekijä voi
 
 Projektin alustava tietokantakaavio:
 
-![Tietokantakaavio](https://github.com/vlappala/Staffer/tree/master/documentation)
+![Tietokantakaavio](https://github.com/vlappala/Staffer/blob/master/documentation/DBChart.jpg)
 
 [Sovellus Herokussa](http://tsoha-staffer.herokuapp.com/)
 
