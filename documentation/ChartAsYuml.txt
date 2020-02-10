@@ -1,8 +1,19 @@
-[Työntekijä|(pk)id:Integer;nimi:String;vastaavakoulutusSuoritettu:Boolean;.;.;.]
+[Account|(pk)id:Integer;name:String;.;.;.]
 
-[Ooppera|(pk)id:Integer;nimi:String;kesto:Time;.;.;.]
+[Production|(pk)id:Integer;name:String;duration:Time;.;.;.]
 
-[Oopperanäytös|(pk)id:Integer;(fk)ooppera_id:Ooppera;esitysajankohta:DateTime;.;.;.]
+[Show|(pk)id:Integer;(fk)production_id:Production;esitysajankohta:DateTime;.;.;.]
 
-[Ooppera]1-*[Oopperanäytös]
-[Oopperanäytös]*-*[Työntekijä]
+[Production]1-*[Show]
+[Show]1-*[AccountShow|(pk)id:Integer;(fk)account_id:Account;(fk)show_id:Show;shift_locked:Boolean;shift_done:Boolean;notes:String;.;.;.]
+
+[AccountShow]*-1[Account]
+
+
+# YUML Example:
+
+# // Cool Class Diagram
+# [Customer|-forname:string;surname:string|doShiz()]<>-orders*>[Order]
+# [Order]++-0..*>[LineItem]
+# [Order]-[note:Aggregate Root ala DDD{bg:wheat}]
+
