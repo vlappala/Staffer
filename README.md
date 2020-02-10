@@ -1,10 +1,11 @@
 # Staffer
 
-Staffer on järjestelmä kuvitteellisen oopperan aulapalveluhenkilöstön työvuorojen hallintaan. Oopperalla järjestetään erilaisia tilaisuuksia, joissa tarvitaan aulapalveluhenkilöstöä. Henkilöstötarpeet vaihtelevat tilaisuuden luonteen mukaan, esimerkiksi eri saleissa järjestetään tilaisuuksia eri kokoisille yleisöille. Järjestelmän avulla on mahdollista jakaa työvuoroja henkilöstölle.
+Staffer on järjestelmä tapahtumien työvoiman hallinnointiin.
 
-Tapahtumakohtaiseen henkilökuntaan kuuluu työntekijöitä, joilla voi olla joko näytösvastaavan rooli tai normaalin työntekijän rooli. Näytösvastaava toimii tavallisten työntekijöiden lähiesimiehenä varsinaisen esimiehen poissaollessa. 
+Pääkäyttäjäoikeuksilla varustettu käyttäjä, eli admin voi lisätä järjestelmään tapahtumia, esimerkiksi esitettäviä teoksia. Admin voi lisätä teoksille yhden tai useampia näytäntöjä, joihin tarvitaan työvoimaa. Admin voi määritellä, onko ilmoittautuminen tiettyyn näytäntöön mahdollista. 
 
-Työntekijöiden tulee olla perehdytettyjä niihin työtehtäviin, joihin heidät voidaan järjestelmän avulla osoittaa.
+Normaalikäyttäjä voi selata työskentelymahdollisuuksia ja ilmoittaa kiinnostuksensa työvuorokohtaisesti. 
+
 
 Järjestelmän käyttö:
 
@@ -26,7 +27,7 @@ Työntekijä voi
 
 Projektin alustava tietokantakaavio:
 
-[Tietokantakaavio](https://github.com/vlappala/Staffer/tree/master/documentation)
+![Tietokantakaavio](https://github.com/vlappala/Staffer/tree/master/documentation)
 
 [Sovellus Herokussa](http://tsoha-staffer.herokuapp.com/)
 
@@ -41,3 +42,7 @@ Testitunnukset:
 
     Login: hello
     Password: world
+
+    
+
+
