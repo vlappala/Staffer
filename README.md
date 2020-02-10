@@ -2,7 +2,7 @@
 
 Staffer on järjestelmä tapahtumien työvoiman hallinnointiin.
 
-Pääkäyttäjäoikeuksilla varustettu käyttäjä, eli admin voi lisätä järjestelmään tapahtumia, esimerkiksi esitettäviä teoksia. Admin voi lisätä teoksille yhden tai useampia näytäntöjä, joihin tarvitaan työvoimaa. Admin voi määritellä, onko ilmoittautuminen tiettyyn näytäntöön mahdollista. 
+Pääkäyttäjäoikeuksilla varustettu käyttäjä, eli admin voi lisätä järjestelmään tapahtumia, esimerkiksi esitettäviä oopperateoksia. Admin voi lisätä teoksille yhden tai useampia näytäntöjä, joihin tarvitaan työvoimaa. Admin voi määritellä, onko ilmoittautuminen tiettyyn näytäntöön mahdollista. 
 
 Normaalikäyttäjä voi selata työskentelymahdollisuuksia ja ilmoittaa kiinnostuksensa työvuorokohtaisesti. 
 
