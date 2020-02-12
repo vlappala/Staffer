@@ -10,6 +10,8 @@ class Production(db.Model):
     onupdate=db.func.current_timestamp())
 
     name = db.Column(db.String(144), nullable=False)
+    show_duration = db.Column(db.DateTime, nullable=False)
+    misc_info = db.Column(db.String(2000), nullable=True)
 
     shows = db.relationship("Show", backref='production', lazy=True)
 

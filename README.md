@@ -42,6 +42,10 @@ Testitunnukset:
 
     Login: hello
     Password: world
+    
+SQLite-komento testikäyttäjän lisäämiseksi:
+
+    INSERT INTO account (name, username, password) VALUES ('hello world', 'hello', 'world');
 
     
 

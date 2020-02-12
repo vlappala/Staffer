@@ -31,6 +31,14 @@ def productions_create():
     production_name = form.name.data
 
     production = Production(production_name)
+    production.misc_info = form.misc_info.data
+
+    showduration =  ""
+    showduration = showduration + form.show_duration.data.strftime("%H:%M")
+
+    showduration = parser.parse(showduration)
+
+    production.show_duration = showduration
 
 
     db.session().add(production)
