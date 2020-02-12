@@ -17,7 +17,7 @@ def shows_index():
 @app.route("/shows/new/")
 @login_required
 def shows_form():
-    # wanha: return render_template("shows/new.html")
+
     return render_template("shows/new.html", form = ShowForm())
   
 @app.route("/shows/<show_id>/", methods=["POST"])
@@ -51,20 +51,10 @@ def shows_create():
     showtime = showtime + form.showtime.data.strftime("%H:%M")
     showtime = parser.parse(showtime)
 
-    # showtime = datetime.now()
 
-    # s_name = request.form.get("name")
-    # showtime = request.form.get("showdate")
-    # showtime = showtime + " "
-    # showtime = showtime + request.form.get("showtime")
-    # showtime = parser.parse(showtime)
-
-
-    # date = request.form.get("showdate")
-    # wanha: t = Show(request.form.get("name"), date)
     t = Show(s_name, showtime)
     t.open_for_recruitment = form.show_open_for_recruitment.data
-    # show_time = Show(request.form.get("showtime"))
+
 
     db.session().add(t)
     db.session().commit()
@@ -121,18 +111,3 @@ def show_update(show_id):
     return redirect(url_for("shows_index"))
 
   
-# Ei toimi: 
-
-# @app.route("/shows/details/edit/<show_id>/", methods=["GET"])
-# @login_required
-# def edit_show_details(show_id):
-
-#     show = Show.query.get(show_id)
-
-#     formi = ShowForm()
-
-  
-  
-#     return render_template("shows/details/edit/editform.html", form = formi, show = show)
-
-

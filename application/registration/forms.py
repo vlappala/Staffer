@@ -7,12 +7,11 @@ from application.auth.models import User
 
 class RegistrationForm(FlaskForm):
 
-    name = StringField('Name', [validators.Length(min=2)])
-    username = StringField('Username', [validators.Length(min=2)])
-    # email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', [validators.DataRequired()])
+    name = StringField('Name', [validators.Length(min=2, max=100)])
+    username = StringField('Username', [validators.Length(min=2, max=100)])
+    password = PasswordField('Password', [validators.DataRequired(), validators.Length(min=2, max=100)])
     password2 = PasswordField(
-        'Repeat Password', [validators.DataRequired(), validators.EqualTo('password')])
+        'Repeat Password', [validators.DataRequired(), validators.Length(min=2, max=100), validators.EqualTo('password')])
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -21,22 +20,3 @@ class RegistrationForm(FlaskForm):
             print("Jee")
             raise ValidationError('Please use a different username.')
 
-    # def validate_email(self, email):
-    #     user = User.query.filter_by(email=email.data).first()
-    #     if user is not None:
-    #         raise ValidationError('Please use a different email address.')
-
-
-
-# Wanhaa:
-
-# from flask_wtf import FlaskForm
-# from wtforms import PasswordField, StringField
-  
-# class RegistrationForm(FlaskForm):
-#     username = StringField("Username")
-#     password = PasswordField("Password")
-#     password_again = PasswordField("Password again")
-  
-#     class Meta:
-#         csrf = False

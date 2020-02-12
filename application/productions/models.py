@@ -13,8 +13,8 @@ class Production(db.Model):
 
     shows = db.relationship("Show", backref='production', lazy=True)
 
-    # Konstruktorin kehitysversio:     def __init__(self, name, show_date):
+
     def __init__(self, name):
         self.name = name
 
-        # self.done = False
+

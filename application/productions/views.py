@@ -15,7 +15,7 @@ from datetime import *
 @app.route("/productions/new/")
 @login_required
 def productions_form():
-    # wanha: return render_template("shows/new.html")
+
     return render_template("productions/new.html", form = ProductionForm())
 
 @app.route("/productions/", methods=["POST"])
@@ -28,12 +28,12 @@ def productions_create():
         return render_template("productions/new.html", form = form)
 
 
-    s_name = form.name.data
+    production_name = form.name.data
 
-    t = Production(s_name)
+    production = Production(production_name)
 
 
-    db.session().add(t)
+    db.session().add(production)
     db.session().commit()
   
     return redirect(url_for("productions_index"))
@@ -79,27 +79,17 @@ def post_shows_to_production(production_id):
     showtime = showtime + form.showtime.data.strftime("%H:%M")
     showtime = parser.parse(showtime)
 
-    # showtime = datetime.now()
 
-    # s_name = request.form.get("name")
-    # showtime = request.form.get("showdate")
-    # showtime = showtime + " "
-    # showtime = showtime + request.form.get("showtime")
-    # showtime = parser.parse(showtime)
+    show = Show(s_name, showtime)
+    show.open_for_recruitment = form.show_open_for_recruitment.data
 
 
-    # date = request.form.get("showdate")
-    # wanha: t = Show(request.form.get("name"), date)
-    t = Show(s_name, showtime)
-    t.open_for_recruitment = form.show_open_for_recruitment.data
-    # show_time = Show(request.form.get("showtime"))
+    show.production_id = production.id
 
-    t.production_id = production.id
-
-    db.session().add(t)
+    db.session().add(show)
     db.session().commit()
   
-    # return redirect(url_for("shows_index"))
+
  
   
     return redirect(url_for("productions_index"))
