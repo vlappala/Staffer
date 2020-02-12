@@ -30,6 +30,10 @@ def productions_create():
 
     production_name = form.name.data
 
+    # testitulostusta, tyyppi on: datetime.time:
+    print(str(form.show_duration.data))
+    print("Tyyppiä: ", type(form.show_duration.data))
+
     production = Production(production_name)
     production.misc_info = form.misc_info.data
 
