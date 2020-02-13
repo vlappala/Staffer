@@ -37,12 +37,13 @@ def productions_create():
     production = Production(production_name)
     production.misc_info = form.misc_info.data
 
-    showduration =  ""
-    showduration = showduration + form.show_duration.data.strftime("%H:%M")
+    # showduration =  ""
+    # showduration = showduration + form.show_duration.data.strftime("%H:%M")
 
-    showduration = parser.parse(showduration)
+    # showduration = parser.parse(showduration)
 
-    production.show_duration = showduration
+    production.show_duration_hours = form.show_duration.data.hour
+    production.show_duration_minutes = form.show_duration.data.minute
 
 
     db.session().add(production)
