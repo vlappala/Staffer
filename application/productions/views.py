@@ -42,8 +42,10 @@ def productions_create():
 
     # showduration = parser.parse(showduration)
 
-    production.show_duration_hours = form.show_duration.data.hour
-    production.show_duration_minutes = form.show_duration.data.minute
+    print(form.show_duration.data.hour)
+
+    production.show_duration_hours = int(form.show_duration.data.hour)
+    production.show_duration_minutes = int(form.show_duration.data.minute)
 
 
     db.session().add(production)
