@@ -46,7 +46,14 @@ class Shift(db.Model):
 
         return response
 
+        def __init__(self, account_id, show_id):
+            self.account_id = account_id
+            self.show_id = show_id
+
     
+
+
+
     # Checks if announcement already exists
 
     @staticmethod

@@ -124,7 +124,7 @@ def shows_hand_up(show_id):
     print()
     print("HALOO!!!")
     print()
-    print("SHIFTSin koko: ", shifts)
+    print("SHIFTSin koko: ", shiftExists)
     if (shiftExists < 1):
 
         shift=Shift(current_user.id, show_id)
