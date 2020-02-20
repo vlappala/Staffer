@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+
+
+    {% for show in shows %}
+
+    
+    <tr>
+      <td>
+        
+      <a href="{{ url_for('show_information', show_id=show.id) }}">{{ show.name }}</a></td>
+      <td>{{ show.show_date }}</td>
+      
+      
+      <td>
+        {% if show.id not in shiftIds %}
+        <form method="POST" action="{{ url_for('shows_hand_up', show_id=show.id) }}">
+          <input type="submit" value="I want to work here"/>
+        </form>
+      {% else %}
+      <b>Already signed up for this</b>
+      {% endif %}
+      </td>
+      
+
+    </tr>
+
+    {% endfor %}
+  </table>
+{% endblock %}

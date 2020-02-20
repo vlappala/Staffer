@@ -5,6 +5,8 @@ from application import app
 from application.auth.models import User
 from application.auth.forms import LoginForm
 
+from application.workshift.models import Shift
+
 @app.route("/auth/login/", methods = ["GET", "POST"])
 def auth_login():
     if request.method == "GET":
@@ -20,6 +22,9 @@ def auth_login():
 
 
     print("Käyttäjä " + user.name + " tunnistettiin")
+
+    shifts = Shift.query.get(user.id)
+
 
     login_user(user)
     return redirect(url_for("index"))

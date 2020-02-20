@@ -25,7 +25,35 @@ PLEASE NOTE: Functionality has changed: To add shows to a production, please vis
   </li>
   {% endfor %}
 </ul>
+Users:
+<ul>
+  {% for user in users %}
+  <li>
+    <td>{{ user.name }}</td>
+    
+    
+  </li>
+  {% endfor %}
+</ul>
+I have signed up for the following workshifts:
+<ul>
+  {% for shift in shifts %}
+  <li>
+    <td><a href="{{ url_for('show_information', show_id=shift.id) }}">{{ shift.name }}</a></td>
+    <td>{{ shift.show_date }}</td>
+    
+    
+  </li>
+  {% endfor %}
+</ul>
+
+{% if 'ADMIN' in current_user.roles() %}
+Admin-bitti on päällä!
+{% else %}
 {% endif %}
+
+{% endif %}
+
     
   </p>
 {% endblock %}

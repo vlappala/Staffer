@@ -1,10 +1,14 @@
 from application import app, db
 
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from application.shows.models import Show
 from application.shows.forms import ShowForm
+
+from application.workshift.models import Shift
+
+
 
 from dateutil import parser
 from datetime import *
@@ -110,4 +114,42 @@ def show_update(show_id):
   
     return redirect(url_for("shows_index"))
 
+
+@app.route("/workshift/<show_id>/", methods=["POST"])
+@login_required
+def shows_hand_up(show_id):
+
+
+    shiftExists = Shift.get_instance(current_user.id, show_id)
+    print()
+    print("HALOO!!!")
+    print()
+    print("SHIFTSin koko: ", shifts)
+    if (shiftExists < 1):
+
+        shift=Shift(current_user.id, show_id)
+        db.session().add(shift)
+        db.session().commit()
+
+    
+
   
+    return redirect(url_for("list_open_shows"))
+
+@app.route("/shows/open_shows/", methods=["GET"])
+@login_required
+def list_open_shows():
+
+    shiftIds = Shift.getShowIdsByUserId(current_user.id)
+
+    return render_template("shows/open_shows/list.html", shows = Show.query.all(), shiftIds=shiftIds)
+
+@app.route("/shows/information/<show_id>/", methods=["GET"])
+@login_required
+def show_information(show_id):
+
+    
+    show = Show.query.get(show_id)
+    
+      
+    return render_template("shows/information/showinfo.html", show = show)

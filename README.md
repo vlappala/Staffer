@@ -43,9 +43,10 @@ Testitunnukset:
     Login: hello
     Password: world
     
-SQLite-komento testikäyttäjän lisäämiseksi:
+SQLite-komento testikäyttäjän lisäämiseksi sekä Admin-roolin asettamiseksi:
 
     INSERT INTO account (name, username, password) VALUES ('hello world', 'hello', 'world');
+    INSERT INTO role (account_id, role_name) VALUES (1, 'ADMIN');
 
     
 

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <p>
+
+Täällä ei ole paljon mitään... vielä!
+<table>
+  <tr>
+
+</tr>
+<tr>
+  <td>{% if signups is defined %}
+    <p>
+      Number of sign-ups per show:
+    </p>
+    {% endif %}
+    
+    
+    <ul>
+      {% for signup in signups %}
+      <tr>
+        <td>{{ signup.LKM }}</td>
+        <td>{{ signup.name }}</td>
+        <td>{{ signup.date }}</td>
+        <td>{{ signup.show_id }}</td>
+        
+      </tr>       
+      
+      {% endfor %}
+    </ul> 
+  </tr>
+</table>
+{% endblock %}

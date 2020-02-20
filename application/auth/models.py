@@ -1,5 +1,7 @@
 from application import db
 
+from application.roles.models import Role
+
 class User(db.Model):
 
     __tablename__ = "account"
@@ -29,3 +31,6 @@ class User(db.Model):
 
     def is_authenticated(self):
         return True
+
+    def roles(self):
+        return Role.getRoleByUserId(self.id)

@@ -31,6 +31,12 @@
         </form>
       </td>
 
+      <td>
+        <form method="POST" action="{{ url_for('shows_hand_up', show_id=show.id, account_id=current_user.id) }}">
+          <input type="submit" value="I want to work here"/>
+        </form>
+      </td>
+
     </tr>
     {% endfor %}
   </table>
