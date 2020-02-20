@@ -10,6 +10,8 @@ from application.workshift.models import Shift
 
 
 
+
+
 from dateutil import parser
 from datetime import *
 
@@ -18,6 +20,12 @@ from datetime import *
 def shows_index():
 
     shows = Show.find_basic_show_info()
+
+    # shows = session.query(Show).all()
+
+    
+
+    # Show.query.all().order_by(show_date.desc())
 
     return render_template("shows/list.html", shows=shows)
 

@@ -34,7 +34,7 @@ class Show(db.Model):
 
     @staticmethod
     def find_basic_show_info():
-        stmt = text("SELECT name, show_date, open_for_recruitment, id FROM show;")
+        stmt = text("SELECT name, show_date, open_for_recruitment, id FROM show ORDER BY show_date;")
         res = db.engine.execute(stmt)
 
         
