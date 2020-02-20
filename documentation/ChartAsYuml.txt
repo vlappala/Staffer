@@ -1,13 +1,15 @@
-[Account|(pk)id:Integer;name:String;.;.;.]
+[account|(pk)id:Integer;date_created:DateTime;date_modified:DateTime;name:String;username:String;password:String;.;.;.]
 
-[Production|(pk)id:Integer;name:String;duration:Time;.;.;.]
+[production|(pk)id:Integer;date_modified:DateTime;name:String;show_duration_hours:Integer;show_duration_minutes:Integer;misc_info:String;.;.;.]
 
-[Show|(pk)id:Integer;(fk)production_id:Production;esitysajankohta:DateTime;.;.;.]
+[show|(pk)id:Integer;(fk)production_id:production;show_date:DateTime;date_modified:DateTime;name:String;open_for_recruitment:Boolean;.;.;.]
 
-[Production]1-*[Show]
-[Show]1-*[AccountShow|(pk)id:Integer;(fk)account_id:Account;(fk)show_id:Show;shift_locked:Boolean;shift_done:Boolean;notes:String;.;.;.]
+[production]1-*[show]
+[show]1-*[workshift|(pk)id:Integer;(fk)account_id:account;(fk)show_id:show;shift_role:String;shift_locked:Boolean;shift_completed:Boolean;shift_billed:Boolean;date_modified:DateTime;.;.;.]
 
-[AccountShow]*-1[Account]
+[account]1-*[role|(pk)id:Integer;account_id:account;role_name:String;date_modified:DateTime]
+
+[workshift]*-1[account]
 
 
 # YUML Example:
