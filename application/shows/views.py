@@ -19,7 +19,7 @@ from datetime import *
 @login_required
 def shows_index():
 
-    shows = Show.find_basic_show_info()
+    # shows = Show.find_basic_show_info()
 
     # shows = session.query(Show).all()
 
@@ -27,7 +27,7 @@ def shows_index():
 
     # Show.query.all().order_by(show_date.desc())
 
-    return render_template("shows/list.html", shows=shows)
+    return render_template("shows/list.html", shows=Show.query.order_by(Show.show_date).all())
 
 @app.route("/shows/new/")
 @login_required
