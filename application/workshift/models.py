@@ -36,7 +36,7 @@ class Shift(db.Model):
     
     @staticmethod
     def find_shifts_with_sign_ups():
-        stmt = text("SELECT show.name, show.show_date, shift.show_id, count(shift.show_id) AS LKM FROM shift, show where show.id = shift.show_id GROUP BY show.name ORDER BY LKM DESC;")
+        stmt = text("SELECT show.name, show.show_date, shift.show_id, count(shift.show_id) AS LKM FROM shift, show where show.id = shift.show_id GROUP BY show.name, show.show_date ORDER BY LKM DESC;")
         
         res = db.engine.execute(stmt)
   
