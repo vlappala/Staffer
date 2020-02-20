@@ -32,4 +32,22 @@ class Show(db.Model):
 
         return response
 
+    @staticmethod
+    def find_basic_show_info():
+        stmt = text("SELECT name, show_date, open_for_recruitment, id FROM show;")
+        res = db.engine.execute(stmt)
+
+        
+  
+        response = []
+        for row in res:
+
+
+
+            response.append({"show_date":row[1], "name":row[0], "open_for_recruitment":row[2], "id":row[3]})
+
+        return response
+
+
+
 

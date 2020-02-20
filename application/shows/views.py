@@ -16,7 +16,10 @@ from datetime import *
 @app.route("/shows/", methods=["GET"])
 @login_required
 def shows_index():
-    return render_template("shows/list.html", shows = Show.query.all())
+
+    shows = Show.find_basic_show_info()
+
+    return render_template("shows/list.html", shows=shows)
 
 @app.route("/shows/new/")
 @login_required
