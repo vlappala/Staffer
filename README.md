@@ -33,6 +33,9 @@ Projektin alustava tietokantakaavio:
 
 [User stories](https://github.com/vlappala/Staffer/tree/master/documentation/userstories.md)
 
+[Asennusohje](https://github.com/vlappala/Staffer/blob/master/documentation/installationguide.md)
+
+[Käyttöohje](https://github.com/vlappala/Staffer/blob/master/documentation/userguide.md)
 
 Komento riippuvuuksien tallentamiseksi tekstitiedostoon: 
 
