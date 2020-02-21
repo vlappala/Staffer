@@ -39,10 +39,10 @@ def shows_form():
 @login_required
 def shows_set_recruitment_open(show_id):
 
-    t = Show.query.get(show_id)
-    b = t.open_for_recruitment
+    show = Show.query.get(show_id)
+    recruitment = show.open_for_recruitment
     
-    t.open_for_recruitment = not b
+    show.open_for_recruitment = not recruitment
     db.session().commit()
   
     return redirect(url_for("shows_index"))
@@ -67,11 +67,11 @@ def shows_create():
     showtime = parser.parse(showtime)
 
 
-    t = Show(s_name, showtime)
-    t.open_for_recruitment = form.show_open_for_recruitment.data
+    show = Show(s_name, showtime)
+    show.open_for_recruitment = form.show_open_for_recruitment.data
 
 
-    db.session().add(t)
+    db.session().add(show)
     db.session().commit()
   
     return redirect(url_for("shows_index"))
@@ -82,8 +82,8 @@ def shows_delete(show_id):
 
 
 
-    t = Show.query.get(show_id)
-    db.session.delete(t)
+    show = Show.query.get(show_id)
+    db.session.delete(show)
     
     
     db.session().commit()

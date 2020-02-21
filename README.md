@@ -29,6 +29,8 @@ Projektin alustava tietokantakaavio:
 
 ![Tietokantakaavio](https://github.com/vlappala/Staffer/blob/master/documentation/DBChart.jpg)
 
+[Tietokantarakenne]
+
 [Sovellus Herokussa](http://tsoha-staffer.herokuapp.com/)
 
 [User stories](https://github.com/vlappala/Staffer/tree/master/documentation/userstories.md)
