@@ -27,7 +27,7 @@ Työntekijä voi
 
 
   
-Projektin alustava tietokantakaavio:
+Projektin tietokantakaavio:
 
 ![Tietokantakaavio](https://github.com/vlappala/Staffer/blob/master/documentation/DBChart.jpg)
 
