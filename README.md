@@ -6,6 +6,7 @@ Pääkäyttäjäoikeuksilla varustettu käyttäjä, eli admin voi lisätä järj
 
 Normaalikäyttäjä voi selata työskentelymahdollisuuksia ja ilmoittaa kiinnostuksensa työvuorokohtaisesti. 
 
+Perustoimintoihin liittyviä SQL-lauseita on listattu sivulla [User stories](https://github.com/vlappala/Staffer/tree/master/documentation/userstories.md)
 
 Järjestelmän käyttö:
 
@@ -25,6 +26,7 @@ Työntekijä voi
   * Tarkastella työskentelyhistoriaansa ja suorittaa erilaisia hakuja esimerkiksi tietyltä aikaväliltä.
 
 
+  
 Projektin alustava tietokantakaavio:
 
 ![Tietokantakaavio](https://github.com/vlappala/Staffer/blob/master/documentation/DBChart.jpg)

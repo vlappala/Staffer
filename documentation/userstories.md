@@ -35,7 +35,7 @@ Ensin kysytään sellaiset näytösten id:t, joihin on jo ilmoittauduttu, kysees
 
     text("SELECT shift.show_id FROM shift WHERE shift.account_id = :ac_id").params(ac_id=account_id)
     
-Sen jälkeen kysytään kaikki näytännöt ja verrataan jo tehtyjä työvuoroiloittautumisia siihen. Itse vertailu tehdään Jinja-templatessa.
+Sen jälkeen kysytään kaikki näytännöt ja verrataan jo tehtyjä työvuoroilmoittautumisia siihen. Itse vertailu tehdään Jinja-templatessa.
 
     SELECT show.id AS show_id, show.show_date AS show_show_date, show.date_modified AS show_date_modified, show.name AS show_name, show.open_for_recruitment AS show_open_for_recruitment, show.production_id AS show_production_id FROM show
 
