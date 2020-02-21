@@ -1,10 +1,9 @@
 # User stories, käyttötapaukset. Lista päivittyy sovelluksen kehittyessä. 
-### Kaikkia toiminnallisuuksia ei ole tässä listattu, joitain ei ole vielä kehitetty ja ne saattavat muuttua ajan myötä. Lista siis päivittyy vielä.
+### Kaikkia toiminnallisuuksia ei ole tässä listattu, joitain ei ole vielä kehitetty ja ne saattavat muuttua ajan myötä. Lista siis päivittyy vielä. Alla listataan käyttötapauksia ja niihin liittyviä SQL-lauseita.
 
 Ylläpitäjän kannalta: 
 
-*  Voin lisätä uuden näytännön työvuorolistaan
-    SQL-lause:
+*  Voin lisätä uuden näytännön työvuorolistaan:
 ##    
 
     INSERT INTO show 
@@ -18,8 +17,7 @@ Ylläpitäjän kannalta:
 
 Työntekijän kannalta:
 
-*  Voin ilmoittautua työvuoroon
-    SQL-lause:
+*  Voin ilmoittautua työvuoroon:
     
 ##
 
@@ -29,7 +27,7 @@ Työntekijän kannalta:
     (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
     (2, '1', None, 0, 0, 0)
 
-*  Voin selata mahdollisia työvuoroja
+*  Voin selata mahdollisia työvuoroja:
 
 ## 
 
@@ -37,11 +35,11 @@ Ensin kysytään sellaiset näytösten id:t, joihin on jo ilmoittauduttu, kysees
 
     text("SELECT shift.show_id FROM shift WHERE shift.account_id = :ac_id").params(ac_id=account_id)
     
-Sen jälkeen kysytään kaikki näytännöt ja verrataan jo tehtyjä työvuoroiloittautumisia siihen.
+Sen jälkeen kysytään kaikki näytännöt ja verrataan jo tehtyjä työvuoroiloittautumisia siihen. Itse vertailu tehdään Jinja-templatessa.
 
     SELECT show.id AS show_id, show.show_date AS show_show_date, show.date_modified AS show_date_modified, show.name AS show_name, show.open_for_recruitment AS show_open_for_recruitment, show.production_id AS show_production_id FROM show
 
-*  Voin tarkastella työvuorohistoriaani. Allaoleva lause listaa kaikki kirjautuneen käyttäjän työvuorot, sekä tehdyt että ne, joita ei ole vielä tehty mutta joihin on ilmoittauduttu.
+*  Voin tarkastella työvuorohistoriaani. Allaoleva lause listaa kaikki kirjautuneen käyttäjän työvuorot, sekä tehdyt että ne, joita ei ole vielä tehty mutta joihin on ilmoittauduttu:
 
 ##
 
