@@ -6,7 +6,7 @@ from flask_login import login_required, current_user
 from application.shows.models import Show
 from application.shows.forms import ShowForm
 
-from application.workshift.models import Shift
+from application.workshift.models import Shift, ShiftDetails
 
 
 
@@ -127,6 +127,14 @@ def shows_hand_up(show_id):
 
         shift=Shift(current_user.id, show_id)
         db.session().add(shift)
+
+        db.session.commit()
+
+        shiftIdList = Shift.getShiftId(current_user.id, show_id)
+        
+        shiftdetails=ShiftDetails(shift_id=shiftIdList[0])
+        db.session.add(shiftdetails)
+
         db.session().commit()
 
     

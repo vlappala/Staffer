@@ -19,7 +19,7 @@ class Show(db.Model):
     def __init__(self, name, show_date):
         self.name = name
         self.show_date = show_date
-        self.open_for_recruitment = False
+
 
     @staticmethod
     def find_shows_with_most_job_openings():

@@ -14,10 +14,7 @@ class Shift(db.Model):
                            nullable=False)
     show_id = db.Column(db.Integer, db.ForeignKey('show.id'),
                            nullable=False)
-    shift_role = db.Column(db.String(144), nullable=True)
-    shift_locked = db.Column(db.Boolean, nullable=False, default=False)
-    shift_completed = db.Column(db.Boolean, nullable=False, default=False)
-    shift_billed = db.Column(db.Boolean, nullable=False, default=False)
+
 
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
     onupdate=db.func.current_timestamp())
@@ -51,6 +48,23 @@ class Shift(db.Model):
             self.show_id = show_id
 
     
+
+
+    @staticmethod
+    def getShiftId(account_id, show_id):
+        stmt = text("SELECT shift.id FROM shift WHERE shift.account_id = :ac_id AND shift.show_id = :s_id").params(ac_id=account_id, s_id=show_id)
+        res = db.engine.execute(stmt)
+
+        
+        response = []
+
+        if res is not None:
+
+            for row in res:
+
+                response.append(row[0])
+
+        return response
 
 
 
@@ -98,4 +112,28 @@ class Shift(db.Model):
         return response
 
 
+class ShiftDetails(db.Model):
+
+    __tablename__ = "shiftdetails"
+
+    id = db.Column(db.Integer, primary_key=True)
+    shift_id = db.Column(db.Integer, db.ForeignKey('shift.id'),
+                           nullable=False)
+
+    shift_role = db.Column(db.String(144), nullable=True, default=None)
+    shift_locked = db.Column(db.Boolean, nullable=False, default=False)
+    shift_completed = db.Column(db.Boolean, nullable=False, default=False)
+    shift_billed = db.Column(db.Boolean, nullable=False, default=False)
+
+    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
+    onupdate=db.func.current_timestamp())
+
+
+    def __init__(self, shift_id):
         
+        self.shift_id = shift_id
+
+
+
+
+   
