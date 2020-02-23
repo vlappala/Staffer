@@ -10,7 +10,7 @@ class Show(db.Model):
     onupdate=db.func.current_timestamp())
 
     name = db.Column(db.String(144), nullable=False)
-    open_for_recruitment = db.Column(db.Boolean, nullable=False)
+    
 
     production_id = db.Column(db.Integer, db.ForeignKey('production.id'),
                            nullable=False)

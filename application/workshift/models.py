@@ -57,25 +57,20 @@ class Shift(db.Model):
     # Checks if announcement already exists
 
     @staticmethod
-    def get_instance(account_id, show_id):
+    def check_if_exists(account_id, show_id):
         stmt = text("SELECT shift.id FROM shift WHERE shift.account_id = :ac_id AND shift.show_id = :s_id").params(ac_id=account_id, s_id=show_id)
         res = db.engine.execute(stmt)
 
-        palautus = 0
+        
         response = []
   
         
         if res is not None:
-            print()
-            print("TRUE")
-            print(res)
-            print()
 
             for row in res:
-                palautus = palautus + 1
+
                 response.append(row[0])
-                print("Vuoron Id: ", row[0])
-        print(palautus)
+
         return len(response)
 
 

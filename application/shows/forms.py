@@ -7,7 +7,7 @@ class ShowForm(FlaskForm):
     name = StringField("Show name", [validators.Length(min=2, max=100)])
     showdate = DateField("Showdate", [validators.InputRequired()])
     showtime = TimeField("Showtime", [validators.InputRequired()])
-    show_open_for_recruitment =  BooleanField("Open for recruitment")
+    
 
 
 

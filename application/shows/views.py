@@ -35,19 +35,6 @@ def shows_form():
 
     return render_template("shows/new.html", form = ShowForm())
   
-@app.route("/shows/<show_id>/", methods=["POST"])
-@login_required
-def shows_set_recruitment_open(show_id):
-
-    show = Show.query.get(show_id)
-    recruitment = show.open_for_recruitment
-    
-    show.open_for_recruitment = not recruitment
-    db.session().commit()
-  
-    return redirect(url_for("shows_index"))
-
-
 
 @app.route("/shows/", methods=["POST"])
 @login_required
@@ -68,7 +55,7 @@ def shows_create():
 
 
     show = Show(s_name, showtime)
-    show.open_for_recruitment = form.show_open_for_recruitment.data
+    
 
 
     db.session().add(show)
@@ -120,7 +107,7 @@ def show_update(show_id):
     showtime = parser.parse(showtime)
 
     show.show_date = showtime
-    show.open_for_recruitment = form.show_open_for_recruitment.data
+    
     db.session().commit()
   
     return redirect(url_for("shows_index"))
@@ -130,12 +117,12 @@ def show_update(show_id):
 @login_required
 def shows_hand_up(show_id):
 
+    # First check if user has already signed up for this show
 
-    shiftExists = Shift.get_instance(current_user.id, show_id)
-    print()
-    print("HALOO!!!")
-    print()
-    print("SHIFTSin koko: ", shiftExists)
+    shiftExists = Shift.check_if_exists(current_user.id, show_id)
+
+    # shiftExists is 0 if sign-up doesn't exist.
+
     if (shiftExists < 1):
 
         shift=Shift(current_user.id, show_id)

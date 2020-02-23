@@ -96,7 +96,7 @@ def post_shows_to_production(production_id):
 
 
     show = Show(s_name, showtime)
-    show.open_for_recruitment = form.show_open_for_recruitment.data
+
 
 
     show.production_id = production.id
