@@ -22,7 +22,7 @@ Työvuorojen laadinnasta vastaava henkilö voi
 Työntekijä voi
 
 * Katsoa tarjolla olevia työvuoroja
-  * Ilmoittautua työvuoroon
+  * Ilmoittautua käytettäväksi työvuoroon
   * Tarkastella työskentelyhistoriaansa ja suorittaa erilaisia hakuja esimerkiksi tietyltä aikaväliltä.
 
 
