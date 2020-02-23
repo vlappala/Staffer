@@ -37,10 +37,18 @@ Users:
 </ul>
 I have signed up for the following workshifts:
 <ul>
-  {% for shift in shifts %}
+  {% for show in showList %}
   <li>
-    <td><a href="{{ url_for('show_information', show_id=shift.id) }}">{{ shift.name }}</a></td>
-    <td>{{ shift.show_date }}</td>
+    <tr>
+    <td><a href="{{ url_for('show_information', show_id=show.id) }}">{{ show.name }}</a></td>
+    <td>{{ show.show_date }}</td>
+    <td>
+      <form method="POST" action="{{ url_for('shift_delete', show_id=show.id) }}">
+        <input type="submit" value="Cancel sign up (Warning, no confirmation!)!"/>
+      </form>
+    </td>
+  </tr>
+    
     
     
   </li>

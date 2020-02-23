@@ -70,6 +70,7 @@ from application.auth import models
 from application.auth import views
 
 from application.workshift import models
+from application.workshift import views
 
 from application.admin import views
 

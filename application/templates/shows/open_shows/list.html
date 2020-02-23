@@ -1,16 +1,15 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+  
 
-
+    <ul>
     {% for show in shows %}
+    <li>
 
     
-    <tr>
-      <td>
-        
-      <a href="{{ url_for('show_information', show_id=show.id) }}">{{ show.name }}</a></td>
+    
+      <td><a href="{{ url_for('show_information', show_id=show.id) }}">{{ show.name }}</a></td>
       <td>{{ show.show_date }}</td>
       
       
@@ -20,13 +19,21 @@
           <input type="submit" value="I want to work here"/>
         </form>
       {% else %}
-      <b>Already signed up for this</b>
+      <td><b>Already signed up for this</b></td>
+      <td>
+        <form method="POST" action="{{ url_for('shift_list_delete', show_id=show.id) }}">
+          <input type="submit" value="Cancel sign up (Warning, no confirmation!)!"/>
+        </form>
+      </td>
+
+
       {% endif %}
       </td>
       
 
     </tr>
-
+    </li>
     {% endfor %}
-  </table>
+  </ul>
+  
 {% endblock %}

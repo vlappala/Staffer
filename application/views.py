@@ -14,7 +14,7 @@ def index():
 
     users = User.query.all()
 
-    shifts = []
+    showList = []
 
     if current_user.is_authenticated:
         print()
@@ -42,9 +42,9 @@ def index():
             for shift in shiftsFromDb:
                 show = Show.query.get(shift)
                 print(show.name)
-                shifts.append(show)
+                showList.append(show)
 
-    return render_template("index.html", most_openings=Show.find_shows_with_most_job_openings(), users=users, shifts=shifts)
+    return render_template("index.html", most_openings=Show.find_shows_with_most_job_openings(), users=users, showList=showList)
 
 
 
