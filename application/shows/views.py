@@ -67,7 +67,17 @@ def shows_create():
 @login_required
 def shows_delete(show_id):
 
+    shiftIds = Shift.find_shiftIds_by_showId(show_id)
 
+    for shiftId in shiftIds:
+        
+        shiftdetails = ShiftDetails.query.get(shiftId)
+        db.session.delete(shiftdetails)
+        db.session.commit()
+
+        shift = Shift.query.get(shiftId)
+        db.session.delete(shift)
+        db.session.commit()
 
     show = Show.query.get(show_id)
     db.session.delete(show)

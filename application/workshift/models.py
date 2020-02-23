@@ -30,6 +30,21 @@ class Shift(db.Model):
         self.account_id = account_id
         self.show_id = show_id
 
+
+    @staticmethod
+    def find_shiftIds_by_showId(show_id):
+        stmt = text("SELECT shift.id FROM shift where show_id = :sh_id").params(sh_id=show_id)
+        
+        res = db.engine.execute(stmt)
+  
+        response = []
+        for row in res:
+            response.append(row[0])
+
+        return response
+
+  
+
     
     @staticmethod
     def find_shifts_with_sign_ups():
@@ -43,11 +58,7 @@ class Shift(db.Model):
 
         return response
 
-        def __init__(self, account_id, show_id):
-            self.account_id = account_id
-            self.show_id = show_id
-
-    
+  
 
 
     @staticmethod
