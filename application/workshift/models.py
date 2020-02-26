@@ -122,6 +122,17 @@ class Shift(db.Model):
         print(palautus)
         return response
 
+    @staticmethod
+    def find_users_with_most_shifts():
+        stmt = text("SELECT account.name, COUNT(shift.id) AS LKM FROM account LEFT JOIN shift ON account.id = shift.account_id group by account.name ORDER BY LKM DESC;")
+        res = db.engine.execute(stmt)
+  
+        response = []
+        for row in res:
+            response.append({"LKM":row[1], "name":row[0]})
+
+        return response
+
 
 class ShiftDetails(db.Model):
 

@@ -10,10 +10,15 @@
     </tr>
     {% for production in productions %}
     <tr>
-      <td>{{ production.name }}</td>
+      <td><a href="{{ url_for('production_details', production_id=production.id) }}">{{ production.name }}</a></td>
       <td>
         <form method="GET" action="{{ url_for('add_shows_to_production', production_id=production.id) }}">
           <input type="submit" value="Add shows to this production!"/>
+        </form>
+      </td>
+      <td>
+        <form method="POST" action="{{ url_for('production_delete', production_id=production.id) }}">
+          <input type="submit" value="Delete production (Warning, no confirmation!)!"/>
         </form>
       </td>
 

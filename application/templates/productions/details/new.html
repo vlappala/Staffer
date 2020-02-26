@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+
+<form method="POST" action="{{ url_for('production_update', production_id = production.id) }}">
+  <table>
+    <tr>
+<td>
+  {{ form.name.label }}
+</td>
+<td>
+  {{ form.name }}
+</td>
+<td>
+  Vänligen observera: Produktion nimen muutos muuttaa kaikkien siihen liitettyjen esitysten nimeä!
+</td>
+<td>
+  <ul>
+    {% for error in form.name.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+</td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.show_duration.label }}
+      </td>
+      <td>
+        {{ form.show_duration }}
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        {{ form.misc_info.label }}
+      </td>
+      <td>
+        {{ form.misc_info(rows='10',cols='70') }}
+      </td>
+    </tr>
+
+ 
+    <tr>
+<td colspan="2">
+  <input type="submit" value="Update production details!"/>
+</td>
+    </tr>
+</form>
+
+{% endblock %}

@@ -50,4 +50,25 @@ class Show(db.Model):
 
 
 
+    @staticmethod
+    def production_name_has_changed(production_id, new_name):
+        stmt = text("UPDATE show SET name = :name WHERE production_id = :pr_id").params(pr_id=production_id, name=new_name)
+        res = db.engine.execute(stmt)
+  
+    
+    @staticmethod
+    def getShowIdsByProductionId(production_id):
+        stmt = text("SELECT id FROM show WHERE production_id = :pr_id;").params(pr_id=production_id)
+        res = db.engine.execute(stmt)
+
+        
+  
+        response = []
+        for row in res:
+
+
+
+            response.append(row[0])
+
+        return response
 

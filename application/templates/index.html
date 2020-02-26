@@ -7,6 +7,10 @@
 
 Logged in as {{ current_user.name }}. 
 <br>
+
+{% if 'ADMIN' in current_user.roles() %}
+
+
 PLEASE NOTE: Functionality has changed: To add shows to a production, please visit List productions -page.
 <br>
 {% if most_openings is defined %}
@@ -30,11 +34,30 @@ Users:
   {% for user in users %}
   <li>
     <td>{{ user.name }}</td>
-    
+   
     
   </li>
   {% endfor %}
 </ul>
+
+{% if usersWithShifts is defined %}
+<p>
+  Users with most workshifts:
+</p>
+{% endif %}
+
+<ul>
+  {% for userWithShifts in usersWithShifts %}
+  <li>
+    <td>{{ userWithShifts.name }}</td>
+    <td>{{ userWithShifts.LKM }}</td>
+  </li>
+  {% endfor %}
+</ul>
+
+  {% else %}
+{% endif %}
+
 I have signed up for the following workshifts:
 <ul>
   {% for show in showList %}
@@ -55,10 +78,7 @@ I have signed up for the following workshifts:
   {% endfor %}
 </ul>
 
-{% if 'ADMIN' in current_user.roles() %}
-Admin-bitti on päällä!
-{% else %}
-{% endif %}
+
 
 {% endif %}
 

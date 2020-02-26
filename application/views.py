@@ -44,7 +44,7 @@ def index():
                 print(show.name)
                 showList.append(show)
 
-    return render_template("index.html", most_openings=Show.find_shows_with_most_job_openings(), users=users, showList=showList)
+    return render_template("index.html", most_openings=Show.find_shows_with_most_job_openings(), users=users, showList=showList, usersWithShifts=Shift.find_users_with_most_shifts())
 
 
 
