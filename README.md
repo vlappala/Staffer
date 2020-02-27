@@ -15,7 +15,9 @@ Järjestelmään on toteutettu kahdentyyppisiä käyttäjärooleja, pääkäytt�
 Perustoimintoihin liittyviä SQL-lauseita on listattu sivulla [User stories](https://github.com/vlappala/Staffer/tree/master/documentation/userstories.md)
 
 
-Järjestelmän käyttö:
+
+
+## Järjestelmän käyttö:
 
 Työvuorojen laadinnasta vastaava henkilö voi
 
