@@ -48,7 +48,10 @@ Työntekijä voi
 * Kirjautua ulos järjestelmästä
 
 
-EI TOTEUTETTUJA OMINAISUUKSIA / KEHITYSMAHDOLLISUUKSIA:
+
+
+### EI TOTEUTETTUJA OMINAISUUKSIA / KEHITYSMAHDOLLISUUKSIA:
+
 
 Tapahtumamallien lisääminen. Malleissa määriteltäisiin työvoiman tarve tapahtumatyyppikohtaisesti.
 
@@ -59,19 +62,23 @@ Tehtyjen tuntien kirjaaminen lomakkeelle, jonka voisi edelleen välittää mahdo
 Automatisoitu tapahtumien tuominen järjestelmään esimerkiksi csv-tiedostosta
 
 
-Projektin tietokantakaavio:
+
+#### Projektin tietokantakaavio:
 
 ![Tietokantakaavio](https://github.com/vlappala/Staffer/blob/master/documentation/DBChart.jpg)
 
 [Tietokantarakenne](https://github.com/vlappala/Staffer/blob/master/documentation/dbstructure.md)
 
+
 [Sovellus Herokussa](http://tsoha-staffer.herokuapp.com/)
 
 [User stories](https://github.com/vlappala/Staffer/tree/master/documentation/userstories.md)
 
+
 [Asennusohje](https://github.com/vlappala/Staffer/blob/master/documentation/installationguide.md)
 
 [Käyttöohje](https://github.com/vlappala/Staffer/blob/master/documentation/userguide.md)
+
 
 Komento riippuvuuksien tallentamiseksi tekstitiedostoon: 
 
