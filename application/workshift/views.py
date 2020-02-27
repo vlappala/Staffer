@@ -17,6 +17,9 @@ from datetime import *
 @login_required
 def shift_delete(show_id):
 
+    # This method is used from the Main menu -page
+    # Method deletes only those shifts that belong to the current user
+
     shiftIdAsList = Shift.getShiftId(current_user.id, show_id)
 
     
@@ -37,6 +40,9 @@ def shift_delete(show_id):
 @app.route("/shifts/list_delete/<show_id>/", methods=["POST"])
 @login_required
 def shift_list_delete(show_id):
+
+    # This method is used from List open shows -page
+    # Method deletes only those shifts that belong to the current user
 
     shiftIdAsList = Shift.getShiftId(current_user.id, show_id)
 

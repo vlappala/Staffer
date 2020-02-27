@@ -1,17 +1,17 @@
-[account|(pk)id:Integer;date_created:DateTime;date_modified:DateTime;name:String;username:String;password:String;.;.;.]
+[account|(pk)id:Integer;date_created:DateTime;date_modified:DateTime;name:String;username:String;password:String]
 
-[production|(pk)id:Integer;date_modified:DateTime;name:String;show_duration_hours:Integer;show_duration_minutes:Integer;misc_info:String;.;.;.]
+[production|(pk)id:Integer;date_modified:DateTime;name:String;show_duration_hours:Integer;show_duration_minutes:Integer;misc_info:String]
 
-[show|(pk)id:Integer;(fk)production_id:production;show_date:DateTime;date_modified:DateTime;name:String;open_for_recruitment:Boolean;.;.;.]
+[show|(pk)id:Integer;(fk)production_id:production;show_date:DateTime;date_modified:DateTime;name:String]
 
 [production]1-*[show]
-[show]1-*[workshift|(pk)id:Integer;(fk)account_id:account;(fk)show_id:show;date_modified:DateTime;.;.;.]
+[show]1-*[shift|(pk)id:Integer;(fk)account_id:account;(fk)show_id:show;date_modified:DateTime]
 
 [account]1-*[role|(pk)id:Integer;account_id:account;role_name:String;date_modified:DateTime]
 
-[workshift]*-1[account]
+[shift]*-1[account]
 
-[workshift]1-1[shiftdetails|(pk)id:Integer;(fk)shift_id:workshift;shift_role:String;shift_locked:Boolean;shift_completed:Boolean;shift_billed:Boolean;.;.;.]
+[shift]1-1[shiftdetails|(pk)id:Integer;(fk)shift_id:shift;shift_role:String;shift_locked:Boolean;shift_completed:Boolean;shift_billed:Boolean;date_modified:DateTime]
 
 
 

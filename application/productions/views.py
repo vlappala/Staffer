@@ -1,7 +1,7 @@
-from application import app, db
+from application import app, db, login_required
 
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required
+# from flask_login import login_required
 
 from application.productions.models import Production
 from application.productions.forms import ProductionForm
@@ -17,13 +17,13 @@ from datetime import *
 from datetime import datetime
 
 @app.route("/productions/new/")
-@login_required
+@login_required(role="ADMIN")
 def productions_form():
 
     return render_template("productions/new.html", form = ProductionForm())
 
 @app.route("/productions/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def productions_create():
 
     form = ProductionForm(request.form)
@@ -58,12 +58,12 @@ def productions_create():
     return redirect(url_for("productions_index"))
 
 @app.route("/productions/", methods=["GET"])
-@login_required
+@login_required(role="ADMIN")
 def productions_index():
     return render_template("productions/list.html", productions = Production.query.all())
   
 @app.route("/productions/prodshows/<production_id>/", methods=["GET"])
-@login_required
+@login_required(role="ADMIN")
 def add_shows_to_production(production_id):
 
     production = Production.query.get(production_id)
@@ -78,7 +78,7 @@ def add_shows_to_production(production_id):
     return render_template("productions/askshows.html", form=form, production=production)
 
 @app.route("/productions/prodshows/<production_id>/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def post_shows_to_production(production_id):
 
     production = Production.query.get(production_id)
@@ -114,7 +114,7 @@ def post_shows_to_production(production_id):
     return redirect(url_for("productions_index"))
 
 @app.route("/productions/details/<production_id>/", methods=["GET"])
-@login_required
+@login_required(role="ADMIN")
 def production_details(production_id):
 
     form = ProductionForm()
@@ -143,7 +143,7 @@ def production_details(production_id):
     return render_template("productions/details/new.html", production = production, form = form)
 
 @app.route("/productions/details/update/<production_id>/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def production_update(production_id):
 
     form = ProductionForm(request.form)
@@ -182,7 +182,7 @@ def production_update(production_id):
 
 
 @app.route("/productions/delete/<production_id>/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def production_delete(production_id):
 
     showIdList = Show.getShowIdsByProductionId(production_id)

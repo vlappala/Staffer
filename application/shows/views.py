@@ -1,7 +1,7 @@
-from application import app, db
+from application import app, db, login_required
 
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required, current_user
+from flask_login import current_user
 
 from application.shows.models import Show
 from application.shows.forms import ShowForm
@@ -16,7 +16,7 @@ from dateutil import parser
 from datetime import *
 
 @app.route("/shows/", methods=["GET"])
-@login_required
+@login_required(role="ADMIN")
 def shows_index():
 
     # shows = Show.find_basic_show_info()
@@ -30,14 +30,14 @@ def shows_index():
     return render_template("shows/list.html", shows=Show.query.order_by(Show.show_date).all())
 
 @app.route("/shows/new/")
-@login_required
+@login_required(role="ADMIN")
 def shows_form():
 
     return render_template("shows/new.html", form = ShowForm())
   
 
 @app.route("/shows/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def shows_create():
 
     form = ShowForm(request.form)
@@ -64,7 +64,7 @@ def shows_create():
     return redirect(url_for("shows_index"))
 
 @app.route("/shows/delete/<show_id>/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def shows_delete(show_id):
 
     shiftIds = Shift.find_shiftIds_by_showId(show_id)
@@ -88,7 +88,7 @@ def shows_delete(show_id):
     return redirect(url_for("shows_index"))
 
 @app.route("/shows/details/<show_id>/", methods=["GET"])
-@login_required
+@login_required(role="ADMIN")
 def show_details(show_id):
 
     form = ShowForm()
@@ -98,7 +98,7 @@ def show_details(show_id):
     return render_template("shows/details/new.html", show = show, form = form)
 
 @app.route("/shows/details/update/<show_id>/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def show_update(show_id):
 
     form = ShowForm(request.form)
@@ -155,6 +155,8 @@ def shows_hand_up(show_id):
 @app.route("/shows/open_shows/", methods=["GET"])
 @login_required
 def list_open_shows():
+
+    #shiftIds is fetched to determine whether the current_user has signed up for the shows
 
     shiftIds = Shift.getShowIdsByUserId(current_user.id)
 
