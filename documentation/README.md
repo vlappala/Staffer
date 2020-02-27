@@ -1,3 +1,3 @@
-Projektin alustava tietokantakaavio:
+Projektin tietokantakaavio:
 
-![Projektin alustava tietokantakaavio](https://github.com/vlappala/Staffer/blob/master/documentation/DBChart.jpg)
+![Projektin tietokantakaavio](https://github.com/vlappala/Staffer/blob/master/documentation/DBChart.jpg)

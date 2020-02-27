@@ -2,9 +2,19 @@
 
 ## Python
 
-...
+Sovellus tarvitsee toimiakseen Python-ohjelmointikielen suoritusympäristön. Voit hakea sen osoitteesta [python.org](https://www.python.org/)
 
-Asennettaessa Python-riippuvuuksia pip-paketinhallintasovelluksen avulla tulee käyttää komentoa
+Pythoniin on hyvä asentaa virtuaaliympäristö, johon ohjelman tarvitsemat riippuvuudet ladataan. Ohjeen virtuaaliympäristön luomiseksi löydät [pythonin dokumentaatiosta](https://docs.python.org/3/tutorial/venv.html)
+
+Virtuaaliympäristön voi luoda esimerkiksi linux-komennolla
+
+    python3 -m venv venv
+    
+Komento luo hakemistoon kansion nimeltä venv, mihin virtuaaliympäristö ladataan. Voit aktivoida virtuaaliympäristön komennolla
+
+    source venv/bin/activate
+
+Sen jälkeen voit asentaa Pythonin vaatimat riippuvuudet Pythonin mukana tulevan pip-paketinhallintasovelluksen avulla komennolla
 
     pip install -r requirements.txt
     
@@ -33,6 +43,14 @@ Tiedoston requirements.txt sisältö on myös alla:
     Werkzeug==0.16.0
     wrapt==1.11.2
     WTForms==2.2.1
+    
+Tämän jälkeen voit käynnistää sovelluksen komennolla
+
+    python3 run.py
+    
+Sovellus näkyy nyt www-selaimen osoitteessa 
+
+    localhost:5000
 
 
 ## Tietokanta

@@ -22,4 +22,21 @@ Tämän jälkeen tietokanta tulee avata komennolla
 
     sqlite3 shows.db
     
-Sqlite3
+ja syöttää tietokantaan pääkäyttäjän käyttäjätiedot komennoilla
+
+    INSERT INTO account (name, username, password) VALUES ('hello world', 'hello', 'world');
+    
+    INSERT INTO role (account_id, role_name) VALUES (1, 'ADMIN');
+
+    
+Tämän jälkeen voit kirjautua sovellukseen www-selaimen osoitteessa 
+
+    localhost:5000
+    
+tunnuksella 
+
+    hello
+    
+ja salasanalla
+
+    world
