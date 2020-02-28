@@ -56,3 +56,7 @@ Sovellus näkyy nyt www-selaimen osoitteessa
 ## Tietokanta
 
 Sovellus tarvitsee toimiakseen tietokantayhteyden. Käytettäessä sovellusta paikallisesti sovellus käyttää sqlite3-tietokannanhallintajärjestelmää. Lyhyt perehdytys aiheeseen löytyy esimerkiksi Tietokantojen perusteet-kurssin [sivulta:](https://tikape-k20.mooc.fi/luku-2/3)
+
+## Heroku
+
+Mikäli haluat asentaa sovelluksen verkkoon, löydät erittäin hyvät ohjeet Helsingin yliopiston Tietokantasovellus-kurssin oppimateriaalista:

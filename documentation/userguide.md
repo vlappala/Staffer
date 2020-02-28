@@ -40,3 +40,9 @@ tunnuksella
 ja salasanalla
 
     world
+
+## Sovelluksen peruskäyttö
+
+Kirjautuneena Admin-käyttäjänä voit luoda järjestelmään erilaisia tapahtumia ja niille esiintymisiä. Sovelluksen peruskäyttäjät voivat ilmoittautua työvuoroon näihin esityksiin.
+
+![admin_loginscreen]()
