@@ -28,12 +28,13 @@
 
     <ul>
       {% for signup in signups %}
+      
 
       <tr>
         <td>{{ signup.LKM }}</td>
-        <td>{{ signup.name }}</td>
-        <td>{{ signup.date }}</td>
-        <td>{{ signup.show_id }}</td>
+        <td>{{ signup.show.name }}</td>
+        <td>{{ signup.show.show_date|datetime }}</td>
+        <td>{{ signup.show.id }}</td>
         
       </tr>       
       

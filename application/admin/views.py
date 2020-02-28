@@ -22,5 +22,7 @@ def admin_pages():
 
     signups = Shift.find_shifts_with_sign_ups()
 
+ 
+
     return render_template("admin/index.html", signups=signups)
 

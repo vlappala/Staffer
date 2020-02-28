@@ -17,25 +17,11 @@ def index():
     showList = []
 
     if current_user.is_authenticated:
-        print()
-        print("FOO")
-        print()
+
 
         shiftsFromDb = Shift.getShowIdsByUserId(current_user.id)
 
-        
 
-
-        print()
-
-        # print(Role.getRoleByUserId(current_user.id))
-
-        # roles = Role.getRoleByUserId(current_user.id)
-
-        #for role in roles:
-        #    print(role)
-
-        print()
 
         if (len(shiftsFromDb) > 0):
         
