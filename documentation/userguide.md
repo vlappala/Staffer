@@ -43,6 +43,29 @@ ja salasanalla
 
 ## Sovelluksen peruskäyttö
 
-Kirjautuneena Admin-käyttäjänä voit luoda järjestelmään erilaisia tapahtumia ja niille esiintymisiä. Sovelluksen peruskäyttäjät voivat ilmoittautua työvuoroon näihin esityksiin.
+### Kirjautuneena Admin-käyttäjänä voit luoda järjestelmään erilaisia tapahtumia ja niille esiintymisiä. Sovelluksen peruskäyttäjät voivat ilmoittautua työvuoroon näihin esityksiin.
 
-![admin_loginscreen]()
+Kirjautumis-, eli Login-näkymä on alempana kuvassa:
+
+![admin_loginscreen](https://github.com/vlappala/Staffer/blob/master/documentation/screenshots/admin_loginscreen.jpg)
+
+Kirjautumisen jälkeen voit luoda tapahtumia järjestelmään ylävalikon kohdasta Add a new production:
+
+![admin_add_productions](https://github.com/vlappala/Staffer/blob/master/documentation/screenshots/admin_add_new_production.jpg)
+
+Voit luoda tapahtumille (productions) esiintymiä (show) ylävalikon kohdasta List / Edit all productions. Näet samassa näkymässä myös kaikki järjestelmään tähän asti lisätyt tapahtumat ja niiden esiintymät. Voit tässä näkymässä myös editoida jo luomiasi tapahtumia tai esiintymiä sekä poistaa luotuja tapahtumia. Yksittäisten esiintymien poistaminen tapahtuu ylävalikon kohdasta List / Edit all shows.
+
+### Kirjautuneena peruskäyttäjänä voit ilmoittautua sovelluksen avulla työvuoroon
+
+Kirjautuneena peruskäyttäjänä näet tapahtumat, joihin tarvitaan työvoimaa ylävalikon Sign up for work! -kohdan alta:
+
+![user_sign_up](https://github.com/vlappala/Staffer/blob/master/documentation/screenshots/user_sign_up.jpg)
+
+Näet vuorosi, joihin olet ilmoittautunut sekä aiemmalta sivulta että myös sovelluksen pääsivulta, minne sovellus sinut kirjautumisen onnistuttua ohjaa:
+
+![user_main_menu](https://github.com/vlappala/Staffer/blob/master/documentation/screenshots/user_main_menu.jpg)
+
+Pääset sovelluksen pääsivulle aina ylävalikon linkistä Main menu.
+
+
+
