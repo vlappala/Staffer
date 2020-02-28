@@ -59,4 +59,4 @@ Sovellus tarvitsee toimiakseen tietokantayhteyden. Käytettäessä sovellusta pa
 
 ## Heroku
 
-Mikäli haluat asentaa sovelluksen verkkoon, löydät erittäin hyvät ohjeet Helsingin yliopiston Tietokantasovellus-kurssin oppimateriaalista:
+Mikäli haluat asentaa sovelluksen verkkoon, löydät siihen erinomaiset ohjeet Helsingin yliopiston Tietokantasovellus-kurssin oppimateriaalista: https://materiaalit.github.io/tsoha-20/osa0/
