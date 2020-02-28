@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 
 from sqlalchemy import UniqueConstraint
 
-from datetime import datetime
+
 
 from application.shows.models import Show
 
@@ -22,6 +22,8 @@ class Shift(db.Model):
 
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
     onupdate=db.func.current_timestamp())
+
+
 
     __table_args__ = (
         UniqueConstraint("account_id", "show_id"),
@@ -109,21 +111,17 @@ class Shift(db.Model):
         stmt = text("SELECT shift.show_id FROM shift WHERE shift.account_id = :ac_id").params(ac_id=account_id)
         res = db.engine.execute(stmt)
 
-        palautus = 0
+
         response = []
   
         
         if res is not None:
-            print()
-            print("TRUE")
-            print(res)
-            print()
+
 
             for row in res:
-                palautus = palautus + 1
+
                 response.append(row[0])
-                print("Ilmoittautumisen vuoron id: ", row[0])
-        print(palautus)
+
         return response
 
     @staticmethod

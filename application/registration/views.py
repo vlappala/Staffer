@@ -1,8 +1,6 @@
 from application import app, db
 
-from flask import redirect, render_template, request, url_for
-from flask_login import login_required
-
+from flask import redirect, render_template, url_for
 
 from application.registration.forms import RegistrationForm
 
@@ -10,8 +8,7 @@ from application.auth.models import User
 
 from application.roles.models import Role
 
-from dateutil import parser
-from datetime import *
+
 
 @app.route("/registration/new/", methods=["GET", "POST"])
 def registration_form():

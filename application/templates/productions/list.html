@@ -21,8 +21,21 @@
           <input type="submit" value="Delete production (Warning, no confirmation!)!"/>
         </form>
       </td>
+    </tr>
+    <tr>
+      {% for show in production.shows|sort(attribute = 'show_date') %}
+      
+      <tr>
+        
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ show.name }} </td>
+        <td><a href="{{ url_for('show_details', show_id=show.id) }}">{{ show.show_date|datetime }}</a></td>
+      </tr>
+        
+      {% endfor %}
 
-
+      {% if production.shows|length > 0 %}
+      <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Total: {{ production.shows|length }}</td></tr>
+      {% endif %}
 
     </tr>
     {% endfor %}

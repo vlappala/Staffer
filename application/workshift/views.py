@@ -1,15 +1,12 @@
 from application import app, db
 
-from flask import redirect, render_template, request, url_for
+from flask import redirect, url_for
 from flask_login import login_required, current_user
 
-from application.shows.models import Show
-from application.shows.forms import ShowForm
 
 from application.workshift.models import Shift, ShiftDetails
 
-from dateutil import parser
-from datetime import *
+
 
 
 

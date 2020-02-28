@@ -1,5 +1,5 @@
 from application import db
-from dateutil import parser
+
 
 from sqlalchemy.sql import text
 
@@ -31,14 +31,8 @@ class Role(db.Model):
         if res is not None:
 
             for row in res:
-                
-                # return row[0]
-                
+
                 response.append(row[0])
-                # print()
-                # print(row[0])
-                # print()
-                
         
         return response
 

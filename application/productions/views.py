@@ -1,7 +1,7 @@
 from application import app, db, login_required
 
 from flask import redirect, render_template, request, url_for
-# from flask_login import login_required
+
 
 from application.productions.models import Production
 from application.productions.forms import ProductionForm
@@ -33,20 +33,9 @@ def productions_create():
 
 
     production_name = form.name.data
-
-    # testitulostusta, tyyppi on: datetime.time:
-    print(str(form.show_duration.data))
-    print("Tyyppiä: ", type(form.show_duration.data))
-
     production = Production(production_name)
+    
     production.misc_info = form.misc_info.data
-
-    # showduration =  ""
-    # showduration = showduration + form.show_duration.data.strftime("%H:%M")
-
-    # showduration = parser.parse(showduration)
-
-    print(form.show_duration.data.hour)
 
     production.show_duration_hours = int(form.show_duration.data.hour)
     production.show_duration_minutes = int(form.show_duration.data.minute)
@@ -68,12 +57,7 @@ def add_shows_to_production(production_id):
 
     production = Production.query.get(production_id)
 
-    # shows = Show.query.get(production_id)
-
     form = ShowForm()
- 
-  
-    # return render_template("productions/askshows.html", shows=Show.query.get(production_id), form=form, production=production)
 
     return render_template("productions/askshows.html", form=form, production=production)
 
@@ -92,23 +76,19 @@ def post_shows_to_production(production_id):
 
 
     s_name = form.name.data
+
     showtime = ""
     showtime = showtime + form.showdate.data.strftime("%Y-%m-%d")
     showtime = showtime + " "
     showtime = showtime + form.showtime.data.strftime("%H:%M")
     showtime = parser.parse(showtime)
 
-
     show = Show(s_name, showtime)
-
-
 
     show.production_id = production.id
 
     db.session().add(show)
     db.session().commit()
-  
-
  
   
     return redirect(url_for("productions_index"))
@@ -128,16 +108,9 @@ def production_details(production_id):
     string_time = string_time + ':'
     string_time = string_time + str(production.show_duration_minutes)
 
-    print()
-    print(string_time)
-    print()
-
     form_time = datetime.strptime(string_time, '%H:%M').time()
 
     form.show_duration.data = form_time
-    # form.show_duration.data.minute = int(production.show_duration_minutes)
-
-    # int(form.show_duration.data.hour)
 
     
     return render_template("productions/details/new.html", production = production, form = form)
@@ -154,29 +127,16 @@ def production_update(production_id):
         return render_template("productions/details/new.html", form = form, production = production)
 
     
+    if (production.name != form.name.data): 
+        Show.production_name_has_changed(production.id, form.name.data)
+    
     production.name = form.name.data
-
-    # testitulostusta, tyyppi on: datetime.time:
-    print(str(form.show_duration.data))
-    print("Tyyppiä: ", type(form.show_duration.data))
-
-    # production = Production(production_name)
     production.misc_info = form.misc_info.data
-
-    # showduration =  ""
-    # showduration = showduration + form.show_duration.data.strftime("%H:%M")
-
-    # showduration = parser.parse(showduration)
-
-    print(form.show_duration.data.hour)
-
     production.show_duration_hours = int(form.show_duration.data.hour)
     production.show_duration_minutes = int(form.show_duration.data.minute)
 
 
-    db.session().commit()
-
-    Show.production_name_has_changed(production.id, form.name.data)
+    db.session().commit()    
   
 
     return redirect(url_for("productions_index"))

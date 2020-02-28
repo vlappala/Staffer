@@ -90,12 +90,6 @@ def load_user(user_id):
 def datetimeformat(value, format='%d.%m.%Y %H:%M'):
     return value.strftime(format)
 
-@app.template_filter('datetimestring')
-def datetimeformatstring(value, format='%d.%m.%Y'):
-
-    
-
-    return value.strftime(format) 
 
   
 try: 

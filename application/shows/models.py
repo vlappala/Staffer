@@ -4,6 +4,9 @@ from dateutil import parser
 from sqlalchemy.sql import text
 
 class Show(db.Model):
+
+    __tablename__ = "show"
+
     id = db.Column(db.Integer, primary_key=True)
     show_date = db.Column(db.DateTime, default=db.func.current_timestamp())
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
@@ -14,6 +17,8 @@ class Show(db.Model):
 
     production_id = db.Column(db.Integer, db.ForeignKey('production.id'),
                            nullable=False)
+
+    shifts = db.relationship("Shift", backref='show', lazy=True)
 
 
     def __init__(self, name, show_date):

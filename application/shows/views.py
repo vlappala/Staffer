@@ -19,13 +19,6 @@ from datetime import *
 @login_required(role="ADMIN")
 def shows_index():
 
-    # shows = Show.find_basic_show_info()
-
-    # shows = session.query(Show).all()
-
-    
-
-    # Show.query.all().order_by(show_date.desc())
 
     return render_template("shows/list.html", shows=Show.query.order_by(Show.show_date).all())
 
@@ -156,11 +149,11 @@ def shows_hand_up(show_id):
 @login_required
 def list_open_shows():
 
-    #shiftIds is fetched to determine whether the current_user has signed up for the shows
+    #shiftIds is fetched to determine in the template whether the current_user has signed up for the shows. It is a list of show id's.
 
     shiftIds = Shift.getShowIdsByUserId(current_user.id)
 
-    return render_template("shows/open_shows/list.html", shows = Show.query.all(), shiftIds=shiftIds)
+    return render_template("shows/open_shows/list.html", shows = Show.query.order_by(Show.show_date).all(), shiftIds=shiftIds)
 
 @app.route("/shows/information/<show_id>/", methods=["GET"])
 @login_required

@@ -1,24 +1,12 @@
 from application import app, db, login_required
-
-from flask import redirect, render_template, request, url_for
-
-# from flask_login import login_required
-
-from application.productions.models import Production
-from application.productions.forms import ProductionForm
-
-from application.shows.models import Show
-from application.shows.forms import ShowForm
-
+from flask import render_template
 from application.workshift.models import Shift
-
-
-from dateutil import parser
-from datetime import *
 
 @app.route("/admin/")
 @login_required(role="ADMIN")
 def admin_pages():
+
+    # signups contains two items per show: Total number of signups per show and an instance of that Show 
 
     signups = Shift.find_shifts_with_sign_ups()
 

@@ -1,6 +1,6 @@
 from application import app
 
-# Ei toimi??? Pitäisi:
+# Logging directives disabled:
 
 # app.logger.addHandler(logging.StreamHandler(sys.stdout))
 # app.logger.setLevel(logging.ERROR)
