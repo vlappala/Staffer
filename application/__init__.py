@@ -78,11 +78,19 @@ from application.registration import views
 
 from application.roles import models
 
+from datetime import datetime
+
 
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
+
+@app.template_filter('datetime')
+def datetimeformat(value, format='%d.%m.%Y %H:%M'):
+    return value.strftime(format)
+
+
   
 try: 
     db.create_all()

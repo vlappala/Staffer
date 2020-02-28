@@ -21,7 +21,7 @@
           <a class="nav-link" href="{{ url_for('index') }} ">Main menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('list_open_shows') }} ">List open shows</a>
+          <a class="nav-link" href="{{ url_for('list_open_shows') }} ">Sign up for work!</a>
         </li>
 
         {% if 'ADMIN' in current_user.roles() %}
@@ -30,7 +30,7 @@
           <a class="nav-link" href="{{ url_for('productions_form') }}">Add a new production</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('productions_index') }}">List productions and/or add shows to a production</a>
+          <a class="nav-link" href="{{ url_for('productions_index') }}">List or edit productions / add shows to a production</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('shows_index') }}">List / Edit all shows</a>

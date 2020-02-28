@@ -5,6 +5,8 @@ from sqlalchemy.sql import text
 
 from sqlalchemy import UniqueConstraint
 
+from datetime import datetime
+
 class Shift(db.Model):
 
     __tablename__ = "shift"
@@ -54,7 +56,7 @@ class Shift(db.Model):
   
         response = []
         for row in res:
-            response.append({"LKM":row[3], "show_id":row[2], "name":row[0], "date":row[1]})
+            response.append({"LKM":row[3], "show_id":row[2], "name":row[0], "date":datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S.%f')})
 
         return response
 

@@ -3,25 +3,36 @@
 {% block body %}
   <p>
 
-Täällä ei ole paljon mitään... vielä!
+
 <table>
   <tr>
 
 </tr>
 <tr>
-  <td>{% if signups is defined %}
+  <td>{% if signups|length > 0 %}
     <p>
       Number of sign-ups per show:
     </p>
     {% endif %}
     
     
+    {% if signups|length > 0 %}
+    <tr>
+      <td><b>Sign-ups</b></td>
+      <td><b>Show name</b></td>
+      <td><b>Showtime</b></td>
+      <td><b>Show id</b></td>
+      
+    </tr>
+    {% endif %}
+
     <ul>
       {% for signup in signups %}
+
       <tr>
         <td>{{ signup.LKM }}</td>
         <td>{{ signup.name }}</td>
-        <td>{{ signup.date }}</td>
+        <td>{{ signup.date|datetime }}</td>
         <td>{{ signup.show_id }}</td>
         
       </tr>       

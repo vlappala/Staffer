@@ -15,7 +15,7 @@
     {% for show in shows %}
     <tr>
       <td><a href="{{ url_for('show_details', show_id=show.id) }}">{{ show.name }}</a></td>
-      <td>{{ show.show_date }}</td>
+      <td>{{ show.show_date|datetime }}</td>
       
       <td>
         <form method="POST" action="{{ url_for('shows_delete', show_id=show.id) }}">

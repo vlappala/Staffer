@@ -147,12 +147,13 @@ def production_details(production_id):
 def production_update(production_id):
 
     form = ProductionForm(request.form)
+    production = Production.query.get(production_id)
 
 
     if not form.validate():
-        return render_template("productions/details/new.html", form = form)
+        return render_template("productions/details/new.html", form = form, production = production)
 
-    production = Production.query.get(production_id)
+    
     production.name = form.name.data
 
     # testitulostusta, tyyppi on: datetime.time:

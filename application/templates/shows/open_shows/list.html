@@ -10,7 +10,7 @@
     
     
       <td><a href="{{ url_for('show_information', show_id=show.id) }}">{{ show.name }}</a></td>
-      <td>{{ show.show_date }}</td>
+      <td>{{ show.show_date|datetime }}</td>
       
       
       <td>
